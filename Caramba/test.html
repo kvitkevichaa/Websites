@@ -1,0 +1,86 @@
+<html>
+<head>
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    <style>      
+    </style>
+<script type="text/javascript">
+	function deleteRow0() {
+        $('p.row0').remove();
+    }; 
+    function deleteRow1() {
+        $('p.row1').remove();
+    }; 
+    function deleteRow2() {
+        $('p.row2').remove();
+    }; 
+    function deleteRow3() {
+        $('p.row3').remove();
+    }; 
+    function deleteRow4() {
+        $('p.row4').remove();        
+    }; 
+</script>
+<script type="text/javascript">
+	function hello2() {
+		//
+		$.getJSON("https://rawgit.com/Varinetz/e6cbadec972e76a340c41a65fcc2a6b3/raw/90191826a3bac2ff0761040ed1d95c59f14eaf26/frontend_test_table.json", function(json) {
+            $('#table-cars').css("display", "grid");
+            for (let counter = 0; counter < json.length; counter++) {
+                $('#table-cars').append("<p class='row" + counter +" main-text'>" + json[counter].title + "<br/>" + "<span class='sub-text'>" + json[counter].description + "</span>" + "</p>"
+                + "<p class='row" + counter +" main-text'>" + json[counter].year + "</p>" 
+                + "<p id='color" + [counter] + "' class='row" + counter +" main-text'>" + json[counter].color + "</p>" 
+                + "<p id='status" + [counter] + "' class='row" + counter +" main-text'>" + json[counter].status + "</p>" 
+                + "<p class='row" + counter +" main-text'>" + json[counter].price + " руб." + "</p>" 
+                + "<p class='row" + counter +" main-text'>" + "<button class='delete' onclick='deleteRow" + [counter] + "()'>Удалить</button>" + "</p>");
+                // COLOR TEXT REPLACEMENT
+                if ($('p#color0:contains("red")')){
+                    $('p#color0').text("").append("<img src='red.png'>");
+                }    
+                if ($("p#color1:contains('white')")) {
+                    $('p#color1').text("").append("<img src='white.png'>");
+                }  
+                if ($('p#color2:contains("black")')) {
+                    $('p#color2').text("").append("<img src='black.png'>");
+                }  
+                if ($('p#color3:contains("green")')) {
+                    $('p#color3').text("").append("<img src='green.png'>");
+                } 
+                if ($('p#color4:contains("grey")')) {
+                    $('p#color4').text("").append("<img src='grey.png'>");
+                } 
+                // STATUS TEXT REPLACEMENT
+                if ($('p#status0:contains("pednding")')) {
+                    $('p#status0').text("").append("Ожидается");
+                }    
+                if ($('p#status1:contains("out_of_stock")')) {
+                    $('p#status1').text("").append("Нет в наличии");
+                }  
+                if ($('p#status2:contains("in_stock")')) {
+                    $('p#status2').text("").append("В наличии");
+                }  
+                if ($('p#status3:contains("out_of_stock")')) {
+                    $('p#status3').text("").append("Нет в наличии");
+                } 
+                if ($('p#status4:contains("in_stock")')) {
+                    $('p#status4').text("").append("В наличии");
+                } 
+        }
+        
+		});
+	}
+</script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+</head>
+<body>    
+    <input type="button" value="Render JSON" id="Render JSON" onclick="return hello2();"/>
+    <div id = "table-cars" class="table-cars" style="display: none; grid-template-columns: 3fr 1fr 1fr 1fr 1fr 1fr; border: 1px solid red; grid-template-rows: 0.5fr 2fr 2fr 2fr 2fr 2fr; grid-column-gap: 15px;">
+        <div class="header">Название</div>
+        <div class="header">Год</div>
+        <div class="header">Цвет</div>
+        <div class="header">Статус</div>
+        <div class="header">Цена</div>
+        <div class="header">Кнопочка</div>
+    </div>
+</body>
+</html>

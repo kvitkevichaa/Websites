@@ -1,0 +1,13 @@
+  .header{
+            background-color: red; 
+            color: white;
+        }
+        *{
+            font-family: "Roboto";  
+        }
+        .main-text{
+            color: black;
+        }
+        .sub-text{
+            color: #797979;
+        }

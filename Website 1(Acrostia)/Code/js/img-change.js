@@ -1,0 +1,22 @@
+$(document).ready(function() {
+$('#block-about-1').hover(function(){
+    $('#img-about-1').attr('src','img/layer13.png');
+},function(){
+    $('#img-about-1').attr('src','img/layer12.png'); 
+});
+$('#block-about-2').hover(function(){
+    $('#img-about-2').attr('src','img/layer13.png');
+},function(){
+    $('#img-about-2').attr('src','img/layer12.png'); 
+});
+$('#block-about-3').hover(function(){
+    $('#img-about-3').attr('src','img/layer13.png');
+},function(){
+    $('#img-about-3').attr('src','img/layer12.png'); 
+});
+$('#block-about-4').hover(function(){
+    $('#img-about-4').attr('src','img/layer13.png');
+},function(){
+    $('#img-about-4').attr('src','img/layer12.png'); 
+});
+});
