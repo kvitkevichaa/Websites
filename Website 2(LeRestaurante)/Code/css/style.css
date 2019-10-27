@@ -1,0 +1,603 @@
+/* Код для подключения шрифта в /css/stylename.css */
+
+/* font-family: "MyriadProBold"; */
+@font-face {
+  font-family: "MyriadProBold";
+  src: url("../fonts/MyriadProBold/MyriadProBold.eot");
+  src: url("../fonts/MyriadProBold/MyriadProBold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/MyriadProBold/MyriadProBold.woff") format("woff"),
+    url("../fonts/MyriadProBold/MyriadProBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* font-family: "MyriadProBoldItalic"; */
+@font-face {
+  font-family: "MyriadProBoldItalic";
+  src: url("../fonts/MyriadProBoldItalic/MyriadProBoldItalic.eot");
+  src: url("../fonts/MyriadProBoldItalic/MyriadProBoldItalic.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/MyriadProBoldItalic/MyriadProBoldItalic.woff") format("woff"),
+    url("../fonts/MyriadProBoldItalic/MyriadProBoldItalic.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* font-family: "MyriadProItalic"; */
+@font-face {
+  font-family: "MyriadProItalic";
+  src: url("../fonts/MyriadProItalic/MyriadProItalic.eot");
+  src: url("../fonts/MyriadProItalic/MyriadProItalic.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/MyriadProItalic/MyriadProItalic.woff") format("woff"),
+    url("../fonts/MyriadProItalic/MyriadProItalic.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* font-family: "MyriadProRegular"; */
+@font-face {
+  font-family: "MyriadProRegular";
+  src: url("../fonts/MyriadProRegular/MyriadProRegular.eot");
+  src: url("../fonts/MyriadProRegular/MyriadProRegular.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/MyriadProRegular/MyriadProRegular.woff") format("woff"),
+    url("../fonts/MyriadProRegular/MyriadProRegular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* general settings */
+body {
+  font-family: "MyriadProRegular";
+  font-weight: 400;
+  color: #2b2b2b;
+}
+
+.center {
+  text-align: center;
+}
+
+/* NAVIGATION */
+.navbar {
+  font-family: "MyriadProBoldItalic";
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.navbar button {
+  position: relative;
+  z-index: 5555;
+  color: #ffffff;
+}
+
+.navbar-place {
+  display: block;
+  position: relative;
+  z-index: 5;
+}
+
+.background-place {
+  display: block;
+  position: absolute;
+  z-index: -1;
+}
+
+.yline {
+  border-bottom: 3px solid #F1AC11;
+}
+
+/* BLOCK1 */
+.block1 {
+  width: 100%;
+  height: 56vw;
+}
+
+.menu {
+  margin-top: 10vw;
+}
+
+.block1 svg {
+  max-width: 50em;
+  min-height: 10.5em;
+}
+
+.block1-text {
+  position: absolute;
+  z-index: 555;
+  width: 300px;
+}
+
+.meat-lovers {
+  width: 60%;
+  font-family: "MyriadProBold";
+  font-size: 35px;
+  line-height: 6vh;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #2b2b2b;
+  margin-bottom: 0 !important;
+}
+
+.full-menu {
+  width: 130px;
+  height: 30px;
+  background-color: #f1ac11;
+  border-radius: 4.0px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin: 2% auto !important;
+}
+
+#r1,
+#r2,
+#r3 {
+  opacity: 0.6;
+}
+
+.b-1:hover .block1-text {
+  transform: translateY(-20%);
+}
+
+.b-1:hover svg {
+  transform: translateY(-20%);
+}
+
+.b-1:hover #r1 {
+  opacity: 0.9;
+}
+
+.b-2:hover .block1-text {
+  transform: translateY(-20%);
+}
+
+.b-2:hover svg {
+  transform: translateY(-20%);
+}
+
+.b-2:hover #r2 {
+  opacity: 0.9;
+}
+
+.b-3:hover .block1-text {
+  transform: translateY(-20%);
+}
+
+.b-3:hover svg {
+  transform: translateY(-20%);
+}
+
+.b-3:hover #r3 {
+  opacity: 0.9;
+}
+
+
+/* BLOCK2 */
+.block2-title {
+  font-family: "MyriadProItalic";
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.text-style {
+  font-family: "MyriadProItalic";
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: #2b2b2b;
+}
+
+.menu-text {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.price {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  position: relative;
+  z-index: 5;
+  padding: 0.2vw 0.7vw;
+}
+
+.price-place {
+  display: block;
+  position: absolute;
+  z-index: -1;
+}
+
+.gray-text {
+  font-family: "MyriadProItalic";
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: #bcbcbc;
+}
+
+/* BLOCK3 */
+
+.carousel-caption {
+  text-align: left;
+  padding-left: 27%;
+  /* height: 15vw; */
+  width: 41vw;
+  /* bottom: 55px !important; */
+}
+
+.carousel-caption p:nth-child(1) {
+  font-family: "MyriadProItalic";
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+
+.carousel-caption p:nth-child(2) {
+  font-family: "MyriadProItalic";
+  font-size: 24px;
+  line-height: 25px;
+  letter-spacing: 0.05em;
+}
+
+.carousel-caption button {
+  border-bottom: 2px solid #b47d00;
+}
+
+
+.carousel-control-prev,
+.carousel-control-next {
+  cursor: pointer;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  background-size: 100%, 100%;
+  background-image: none;
+}
+
+.carousel-control-prev-icon {
+  position: relative;
+  left: -90%;
+}
+
+.carousel-control-next-icon {
+  position: relative;
+  right: -80%;
+}
+
+.carousel-control-next p {
+  font-family: "MyriadProItalic";
+  font-weight: 500;
+  font-size: 12px;
+  color: #f1ac11;
+  position: relative;
+  right: -80%;
+  white-space: nowrap;
+  padding-top: 5%;
+  padding-left: 10%;
+}
+
+.carousel-control-next-icon:after {
+  content: url(/assets/arrow-1.png);
+  font-size: 55px;
+}
+
+.carousel-control-prev-icon:after {
+  content: url(/assets/arrow-2.png);
+  font-size: 55px;
+}
+
+/* BLOCK4 */
+.block4 {
+  width: 100%;
+  height: 25vw;
+}
+
+.box {
+  position: relative;
+  margin: 0 auto;
+  max-width: 35em;
+  min-height: 20em;
+  padding-top: 4%;
+}
+
+.block4 .box #svg2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.block4-text {
+  position: absolute;
+  z-index: 555;
+}
+
+.block4-text p:nth-child(1) {
+  font-family: "MyriadProItalic";
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.block4-text .text-warning {
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.add {
+  font-family: "MyriadProBoldItalic";
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  margin-left: 25%;
+  text-align: left;
+  margin-bottom: 0;
+  margin-top: 2%;
+}
+
+.block4-text button {
+  border-bottom: 2px solid #b47d00;
+}
+
+/* FOOTER */
+footer {
+  width: 100%;
+  height: 14vw;
+}
+
+footer .container-fluid {
+  padding-left: 10%;
+}
+
+.footer-title {
+  font-family: "MyriadProItalic";
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.footer-subtitle {
+  font-family: "MyriadProItalic";
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+input[type="email"] {
+  border: none;
+  border-radius: 0;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+}
+
+input[type="email"]::placeholder {
+  color: #ffffff;
+}
+
+footer button[type="submit"] {
+  border-bottom: 2px solid #b47d00;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 150px 150px 150px;
+}
+
+@media (max-width: 1034px) {
+  #logo {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .menu-picture {
+    width: 80px !important;
+    height: 80px !important;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .menu-picture {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  /* .menu {
+    margin-top: 1vw;
+    display: grid !important;
+    grid-template-rows: 50% 50%;
+  }
+
+  .bobik1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  .bobik2 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+  }
+
+  .bobik3 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+
+  #r1,
+  #r2,
+  #r3 {
+    margin: 5%;
+  } */
+
+  .menu-grid {
+    grid-template-columns: 100%;
+    grid-template-rows: 150px 150px 150px 150px 150px 150px;
+  }
+
+  .menu-item {
+    margin: 0 auto;
+  }
+}
+
+/* @media (min-width: 992px) and (max-width: 1199px) {
+  .navbar {
+    font-size: 1.5vw;
+  }
+
+  .yline {
+    border-bottom: 2px solid #F1AC11;
+  }
+
+  .menu {
+    margin-top: 7vw;
+  }
+
+  .block1 svg {
+    width: 22vw;
+    height: 9vw;
+  }
+
+  .block1-text {
+    width: 20vw;
+  }
+
+  .meat-lovers {
+    font-size: 3vw;
+    line-height: 3vw;
+  }
+
+  .full-menu {
+    width: 10vw;
+    height: 28px;
+    font-size: 1vw;
+  }
+
+  .block2-title {
+    font-size: 3.5vw;
+  }
+
+  .text-style {
+    font-size: 1.2vw;
+  }
+
+  .menu-text {
+    font-size: 1.4vw;
+  }
+
+  .price {
+    font-size: 1.3vw;
+    padding: 0.4vw 1vw;
+  }
+
+  .gray-text {
+    font-size: 1vw;
+  }
+
+  .carousel-caption {
+    padding-left: 35%;
+    height: 15vw;
+  }
+
+  .carousel-caption p:nth-child(1) {
+    font-size: 1.1vw;
+  }
+
+  .carousel-caption p:nth-child(2) {
+    font-size: 1.9vw;
+    line-height: 1.8vw;
+  }
+
+  .carousel-caption {
+    bottom: 55px !important;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    height: 100px;
+    width: 100px;
+    background-size: 100%, 100%;
+    background-image: none;
+  }
+
+  .carousel-control-prev-icon {
+    position: relative;
+    left: -90%;
+  }
+
+  .carousel-control-next-icon {
+    position: relative;
+    right: -80%;
+  }
+
+  .carousel-control-next p {
+    display: none;
+  }
+
+  .carousel-control-next-icon:after {
+    content: url(/assets/arrow-1.png);
+    font-size: 55px;
+  }
+
+  .carousel-control-prev-icon:after {
+    content: url(/assets/arrow-2.png);
+    font-size: 55px;
+  }
+
+  .box {
+    width: 40vw;
+    padding-top: 2%;
+  }
+
+  .block4 .box #svg2 {
+    height: 70%;
+  }
+
+  .block4-text p:nth-child(1) {
+    font-size: 2vw;
+  }
+
+  .block4-text .text-warning {
+    font-size: 1.6vw;
+  }
+
+  .add {
+    font-size: 1.5vw;
+  }
+
+  .block4-text button {
+    font-size: 1.2vw;
+  }
+
+  footer .container-fluid {
+    padding-left: 8%;
+  }
+
+  .footer-title {
+    font-size: 1.5vw;
+  }
+
+  .footer-subtitle {
+    font-size: 1.3vw;
+  }
+
+  input[type="email"]::placeholder {
+    font-size: 1.2vw;
+  }
+
+  footer button[type="submit"] {
+    font-size: 1.2vw;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {}
+
+@media (min-width: 576px) and (max-width: 767px) {}
+
+@media (max-width: 575px) {} */
