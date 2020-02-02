@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="http://localhost:3000/css/style.css" />
+    <link rel="stylesheet" href="css/colors.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap&subset=cyrillic"
+        rel="stylesheet">
+    <title>test</title>
+</head>
+
+<body>
+    <!-- NAV starts here -->
+    <nav id="navbar" class="navbar navbar-expand-lg menu-position">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img id="logo-small" src="../img/logo-copy.svg" alt="logo" class="small-logo element-hidden" />
+                <img id="logo-big" src="../img/logo.svg" alt="logo" class="logo" />
+            </a>
+            <img onclick="closeMenu()" class="element-hidden" id="menu-cross" src="../svg/cross.svg" />
+            <img onclick="openMenu()" class="element-hidden" id="menu-burger" src="../svg/burger.svg" />
+        </div>
+
+        <div class="navbar-wrapper">
+            <div class="navbar-content element-hidden">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" id="company-link" href="#company">
+                            <span class="link-span underline">О
+                                компании</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="cases-link" href="#cards"><span class="link-span underline">Кейсы
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contacts-link" href="#contacts"><span
+                                class="link-span underline">Контакты
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <button id="button-order" class="btn navigation-button button-order element-hidden">Заказать</button>
+        </div>
+
+    </nav>
+    <!-- NAV ends here -->
+
+    <!-- SECTION ABOUT starts here -->
+    <div id="company" class="about-block d-flex flex-column">
+        <p class="align-self-center best-company">Мы – лучшая компания в Мире</p>
+        <p class="align-self-center">Предоставляем любые услуги в любом бизнесе
+            в день обращения
+        </p>
+        <button class="btn align-self-center btn-order">Заказать</button>
+    </div>
+    <!-- SECTION ABOUT ends here -->
+
+    <!-- SECTION CASES starts here -->
+    <div class="cases-block">
+        <div class="cases-controls-wrapper container">
+            <p class="cases-block-title">Кейсы</p>
+            <div class="cases-controls">
+                <span class="card-button-back" id="arrow-scrollLeft"><img src="svg/arrow-copy.svg" /></span>
+                <span class="card-button-forward" id="arrow-scrollRight"><img src="svg/arrow.svg" /></span>
+
+            </div>
+        </div>
+        <div id="cards" class="scrolling-wrapper-flexbox">
+        </div>
+    </div>
+    <!-- SECTION CASES ends here -->
+
+    <!-- SECTION CONTACT starts here -->
+    <div id="contacts" class="container d-grid">
+        <div>
+            <p>Следите за нашей компанией, подпишитесь на рассылку, мы не будем навязчивыми
+            </p>
+            <p>Новости выходят один раз в неделю в самом лучшем формате</p>
+        </div>
+
+        <form>
+            <div class="form-group">
+                <input type="email" placeholder="Ваш e-mail">
+            </div>
+            <div class="form-group form-check">
+                <label class="checkbox-label">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="form-check-label" for="exampleCheck1">Согласен с
+                    <a href="#">условиями</a>
+                    сервиса
+                </label>
+            </div>
+            <button type="submit" class="btn">Подписаться</button>
+            <button type="submit" class="btn">Не хочу</button>
+        </form>
+    </div>
+    <!-- SECTION CONTACT ends here -->
+
+    <script>
+        // Запрос на массив с объектами. Каждый объект - карточка с параметрами. Количество объектов - 4, запрашивается - 3.
+        async function getRequest() {
+            await axios({
+                    method: 'get',
+                    url: 'http://localhost:3000/data?_limit=3',
+                }).then(function (response) {
+                    this.renderCards(response.data)
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+        // Кладем данные в шаблон карточки
+        function renderCards(data) {
+            if (data && data.length > 0) {
+                document.getElementById('cards').innerHTML = document.getElementById('cards').innerHTML + data.map(
+                    card => {
+                        return `
+                    <div class="card" id="${card.id}">
+                        ${card.img ? `
+                        <div class="centered-card-image">
+                            <img class="card-image" src=${card.img}>
+                        </div>
+                        ` : ''}
+                        ${card.date ? `<div class="card-date">${card.date}</div>` : ''}
+                        ${card.title ? `<div class="card-title">${card.title}</div>` : ''}
+                        ${card.text ? `<div class="card-text">${card.text}</div>` : ''}
+                        <div class="card-line"></div>
+                        <div class="card-button" onmouseover="onHover('${card.id}-image');" onmouseout="offHover('${card.id}-image');"><a href="${card.link}">Читать полностью <img id="${card.id}-image" src="svg/arrow.svg"/></a></div>
+                    </div>
+                    `
+                    }).reverse().join('')
+            }
+        }
+    </script>
+    <!-- Библиотека для выполнения POST/GET запросов (иногда используется во Vue) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
+        integrity="sha256-T/f7Sju1ZfNNfBh7skWn0idlCBcI3RwdLSS4/I7NQKQ=" crossorigin="anonymous"></script>
+
+    <script>
+        // Скроллинг для меню (вкл/выкл малый размер меню при скроллинге ниже кнопки "заказать")
+        window.onscroll = scroller;
+        const navbar = document.getElementById('navbar');
+
+        function scroller() {
+            const scrollTrigger = (document.documentElement.scrollHeight / 100) * 20
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+            const minWidthForMenuChange = window.matchMedia("(min-width: 1000px)");
+
+            if (minWidthForMenuChange.matches) {
+                if (scrollTop > scrollTrigger) {
+                    document.getElementById('logo-small').classList.remove('element-hidden');
+                    document.getElementById('logo-big').classList.add('element-hidden');
+                    document.querySelector('.navigation-button').classList.remove('element-hidden');
+                    document.querySelector('.menu-position').style.height = '70px';
+                    document.querySelector('.menu-position').style.justifyContent = 'flex-start';
+                    document.querySelector('.navbar-wrapper').style.justifyContent = 'space-between';
+                    document.getElementById('menu-cross').classList.add('element-hidden');
+                    document.getElementById('menu-burger').classList.add('element-hidden');
+                    document.querySelectorAll('.link-span').forEach(function (el) {
+                        el.classList.add('underline-small');
+                        el.classList.remove('underline')
+                    });
+
+                } else {
+                    document.getElementById('logo-small').classList.add('element-hidden');
+                    document.getElementById('logo-big').classList.remove('element-hidden');
+                    document.querySelector('.navigation-button').classList.add('element-hidden');
+                    document.querySelector('.menu-position').style.height = '100px'
+                    document.querySelector('.menu-position').style.justifyContent = 'space-between';
+                    document.querySelector('.navbar-wrapper').style.justifyContent = 'flex-end';
+                    document.getElementById('menu-cross').classList.add('element-hidden');
+                    document.getElementById('menu-burger').classList.add('element-hidden');
+                    document.querySelectorAll('.link-span').forEach(function (el) {
+                        el.classList.remove('underline-small');
+                        el.classList.add('underline')
+                    });
+                }
+            }
+        }
+    </script>
+
+    <script>
+        // Стили для кнопок при нажатии
+        document.getElementById('company-link').onclick = function () {
+            document.getElementById('company-link').querySelector('span').classList.add('color-darkish-pink')
+            document.getElementById('cases-link').querySelector('span').classList.remove('color-darkish-pink')
+            document.getElementById('contacts-link').querySelector('span').classList.remove('color-darkish-pink')
+        }
+        document.getElementById('cases-link').onclick = function () {
+            document.getElementById('company-link').querySelector('span').classList.remove('color-darkish-pink')
+            document.getElementById('cases-link').querySelector('span').classList.add('color-darkish-pink')
+            document.getElementById('contacts-link').querySelector('span').classList.remove('color-darkish-pink')
+        }
+        document.getElementById('contacts-link').onclick = function () {
+            document.getElementById('company-link').querySelector('span').classList.remove('color-darkish-pink')
+            document.getElementById('cases-link').querySelector('span').classList.remove('color-darkish-pink')
+            document.getElementById('contacts-link').querySelector('span').classList.add('color-darkish-pink')
+        }
+
+        // Скроллинг для карточек в мобильном виде
+        document.getElementById('arrow-scrollLeft').onclick = function () {
+            document.getElementById('cards').scrollBy({
+                left: -150,
+                behavior: 'smooth'
+            });
+        };
+
+        document.getElementById('arrow-scrollRight').onclick = function () {
+            document.getElementById('cards').scrollBy({
+                left: 150,
+                behavior: 'smooth'
+            });
+        };
+
+        // Манипуляции с классами/свойствами при загрузке, в зависимости от размера экрана
+        document.body.onload = function () {
+            getRequest()
+            const maxWidthForMenuChange = window.matchMedia("(max-width: 999px)");
+            const minWidthForMenuChange = window.matchMedia("(min-width: 1000px)");
+
+            if (maxWidthForMenuChange.matches) {
+                document.querySelector('.menu-position').style.height = '70px';
+                document.querySelector('.menu-position').style.justifyContent = 'flex-start';
+                document.querySelector('.navbar-wrapper').style.justifyContent = 'flex-start';
+                document.querySelector('.navigation-button').removeAttribute("id")
+                document.getElementById('menu-burger').classList.remove('element-hidden');
+            }
+
+            if (minWidthForMenuChange.matches) {
+                document.getElementById('menu-cross').classList.add('element-hidden');
+                document.getElementById('menu-burger').classList.add('element-hidden');
+                document.querySelector('.navbar-wrapper').classList.remove('navbar-wrapper-closed');
+                document.querySelector('.navbar-wrapper').classList.remove('element-hidden');
+                document.querySelector('.navbar-content').classList.remove('element-hidden');
+                document.querySelector('.navigation-button').classList.add('element-hidden');
+
+                document.querySelector('.navigation-button').id = "button-order"
+            }
+        }
+        // Манипуляции с классами/свойствами при изменении ширины окна, в зависимости от размера экрана
+        window.onresize = function () {
+            const maxWidthForMenuChange = window.matchMedia("(max-width: 999px)");
+            const minWidthForMenuChange = window.matchMedia("(min-width: 1000px)");
+
+            if (maxWidthForMenuChange.matches) {
+                document.querySelector('.menu-position').style.height = '70px';
+                document.querySelector('.menu-position').style.justifyContent = 'flex-start';
+                document.querySelector('.navbar-wrapper').style.justifyContent = 'flex-start';
+                document.getElementById('menu-cross').classList.add('element-hidden');
+                document.getElementById('menu-burger').classList.remove('element-hidden');
+                document.querySelector('.navigation-button').classList.remove('element-hidden');
+                document.querySelector('.navbar-content').style.display = 'none';
+                document.querySelector('.navigation-button').removeAttribute("id")
+            }
+
+            if (minWidthForMenuChange.matches) {
+                document.querySelector('.menu-position').style.justifyContent = 'space-between';
+                document.querySelector('.navbar-wrapper').style.justifyContent = 'flex-end';
+                document.querySelector('.navbar-content').style.display = 'flex';
+                document.querySelector('.navigation-button').removeAttribute("id")
+
+                document.getElementById('menu-cross').classList.add('element-hidden');
+                document.getElementById('menu-burger').classList.add('element-hidden');
+                document.querySelector('.navbar-wrapper').classList.remove('navbar-wrapper-closed');
+                document.querySelector('.navbar-wrapper').classList.remove('element-hidden');
+                document.querySelector('.navbar-content').classList.remove('element-hidden');
+                document.querySelector('.navigation-button').classList.add('element-hidden');
+            }
+        }
+    </script>
+
+    <script>
+        // Замена серого svg стрелочки на розовый
+        function onHover(imageId) {
+            document.getElementById(imageId).src = 'svg/arrowpink.svg'
+        }
+
+        function offHover(imageId) {
+            document.getElementById(imageId).src = 'svg/arrow.svg'
+        }
+    </script>
+
+    <script>
+        // Открытие меню на мобильном устройстве
+        function openMenu() {
+            document.getElementById('menu-burger').classList.add('element-hidden');
+            document.getElementById('menu-cross').classList.remove('element-hidden');
+            document.querySelector('.navbar-wrapper').classList.add('navbar-wrapper-opened');
+            document.querySelector('.navbar-content').style.display = 'flex';
+            document.querySelector('.navigation-button').id = "button-order"
+            document.querySelector('.navbar-content').classList.remove('element-hidden');
+            document.querySelector('.navigation-button').classList.remove('element-hidden');
+        }
+        // Закрытие меню на мобильном устройстве
+        function closeMenu() {
+            document.getElementById('menu-burger').classList.remove('element-hidden');
+            document.getElementById('menu-cross').classList.add('element-hidden');
+            document.querySelector('.navbar-content').style.display = 'none';
+            document.querySelector('.navigation-button').removeAttribute("id")
+            document.querySelector('.navbar-content').classList.add('element-hidden');
+            document.querySelector('.navigation-button').classList.add('element-hidden');
+            document.querySelector('.navbar-wrapper').classList.remove('navbar-wrapper-opened');
+        }
+    </script>
+
+</body>
+
+</html>
