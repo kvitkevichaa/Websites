@@ -1,0 +1,31 @@
+h1 {
+  text-align: center;
+  margin-top: 70px;
+}
+
+.text {
+text-align: center;
+font-weight: 500;
+font-size: 18px;
+}
+
+.button-place{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.button-request {
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  border: solid 1px #3b444a;
+  color: #3b444a;
+  background-color: #ffffff;
+  transition: 0.5s;
+}
+
+.button-request:hover{
+  background-color: #D6D6D6;
+  transition: 0.5s;
+}
